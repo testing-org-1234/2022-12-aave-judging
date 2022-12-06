@@ -30,7 +30,7 @@ def process_directory(repo, path):
     ]
     for item in repo_items:
         print("Reading file %s" % item.name)
-        if item.name in ["unlabeled", "low-info", "closed"]:
+        if item.name in ["low", "false"]:
             process_directory(repo, item.path)
             continue
 
