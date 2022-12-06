@@ -35,7 +35,7 @@ def process_directory(repo, path):
             continue
 
         parent = None
-        closed = any(x in path for x in ["unlabeled", "low-info", "closed"])
+        closed = any(x in path for x in ["low", "false"])
         files = []
         dir_issues_ids = []
         severity = None
@@ -53,7 +53,7 @@ def process_directory(repo, path):
 
         for file in files:
             if "report" in file.name:
-                issue_id = int(file.name.replace("-report.md", ""))
+                issue_id = int(file.name.replace("-best.md", ""))
                 parent = issue_id
             else:
                 issue_id = int(file.name.replace(".md", ""))
